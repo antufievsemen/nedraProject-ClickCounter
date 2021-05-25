@@ -1,4 +1,4 @@
-package ru.nedra.antufievsemen.entity;
+package ru.nedra.antufievsemen.clickercounter.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,6 +15,7 @@ public class ClickCounter {
     Integer counter;
 
     public ClickCounter() {
+        counter = 0;
     }
 
     public ClickCounter(Long id, Integer counter) {
@@ -40,5 +41,9 @@ public class ClickCounter {
 
     public void setCounter(Integer counter) {
         this.counter = counter;
+    }
+
+    public void incrementCounter() {
+        this.counter++;
     }
 }
