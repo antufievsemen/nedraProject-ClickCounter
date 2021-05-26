@@ -1,5 +1,7 @@
 package ru.nedra.antufievsemen.controller;
 
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +26,12 @@ public class ClickCounterRestController {
 
     @PostMapping
     public ClickCounter incrementCounter() {
+        return clickCounterService.incrementCounter();
+    }
+
+    @MessageMapping("/changeCounter")
+    @SendTo("/topic/counter")
+    public ClickCounter change(ClickCounter counter) {
         return clickCounterService.incrementCounter();
     }
 }

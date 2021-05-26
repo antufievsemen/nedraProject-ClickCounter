@@ -27,8 +27,8 @@ public class ClickCounterFactory {
         return this.counter;
     }
 
-    public void incrementClickCounter() {
+    public ClickCounter incrementClickCounter() {
         counter.incrementCounter();
-        clickCounterRepository.saveAndFlush(counter);
+        return clickCounterRepository.saveAndFlush(counter);
     }
 }
