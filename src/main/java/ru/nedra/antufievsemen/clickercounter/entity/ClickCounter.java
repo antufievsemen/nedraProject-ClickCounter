@@ -46,4 +46,12 @@ public class ClickCounter {
     public void incrementCounter() {
         this.counter++;
     }
+
+    @Override
+    public String toString() {
+        return "ClickCounter{" +
+                "id=" + id +
+                ", counter=" + counter +
+                '}';
+    }
 }

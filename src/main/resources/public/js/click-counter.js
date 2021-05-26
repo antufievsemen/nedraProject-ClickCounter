@@ -1,4 +1,4 @@
-var clickCounterApi = Vue.resource('/lick-counter')
+var clickCounterApi = Vue.resource('/click-counter')
 
 Vue.component('click-counter', {
     data: function () {
@@ -10,17 +10,26 @@ Vue.component('click-counter', {
         '<div>' +
         '<div> Количество нажатий:' +
         '</div>' +
-        '<input type="text" readonly v-model="click_counter"/>' +
-        '<input type="button" placeholder="click!" @click="update_counter"/>' +
+        '<input type="number" readonly v-model="click_counter"/>' +
+        '<div>' +
+        '</div>' +
+        '<input type="button" value="click" @click="update_counter"/>' +
         '</div>',
     created: function () {
         clickCounterApi.get().then(result =>
-            this.click_counter = result.body
+            result.json().then(data =>
+                this.click_counter = data.counter
+            )
         )
     },
     methods: {
         update_counter: function () {
             clickCounterApi.save({}, null);
+            clickCounterApi.get().then(result =>
+                result.json().then(data =>
+                    this.click_counter = data.counter
+                )
+            )
         }
     }
 

@@ -16,9 +16,8 @@ public class ClickCounterService {
 
     @Transactional
     public ClickCounter incrementCounter() {
-        ClickCounter counter = clickCounterFactory.getClickCounter();
-        counter.incrementCounter();
-        return counter;
+        clickCounterFactory.incrementClickCounter();
+        return clickCounterFactory.getClickCounter();
     }
 
     @Transactional
