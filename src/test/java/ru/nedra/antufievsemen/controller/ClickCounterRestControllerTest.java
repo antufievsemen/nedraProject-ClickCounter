@@ -1,4 +1,4 @@
-package ru.nedra.antufievsemen;
+package ru.nedra.antufievsemen.controller;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +16,12 @@ public class ClickCounterRestControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
+    /*
+     * Сделать должны были быть тесты для RestController`а
+     */
 
-    @Test
-    public void testReturn200() {
+//    @Test
+//    public void testReturn200() {
 //        mockMvc.perform(post("/click-counter")
 //                .andExpect(status().isOk())
 //                .andExpect(content()

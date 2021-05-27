@@ -15,6 +15,12 @@ public class ClickCounterFactory {
         this.clickCounterRepository = clickCounterRepository;
     }
 
+    /*
+    * Сделал данный метод для работы с одним инстансом ClickCounter`а.
+    * После перезапуска сервера счетчик не сбрасывается, так как мы достаем его из бд.
+    * При первом запуске сервера создается единственная запись в таблице и дальше используется только она.
+     */
+
     public ClickCounter getClickCounter() {
         if (counter == null) {
             Optional<ClickCounter> counter = clickCounterRepository.findById(1L);

@@ -1,4 +1,4 @@
-package ru.nedra.antufievsemen;
+package ru.nedra.antufievsemen.entity;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
