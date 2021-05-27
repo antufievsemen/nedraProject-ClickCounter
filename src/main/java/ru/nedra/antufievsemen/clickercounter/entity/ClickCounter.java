@@ -1,5 +1,6 @@
 package ru.nedra.antufievsemen.clickercounter.entity;
 
+import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -53,5 +54,18 @@ public class ClickCounter {
                 "id=" + id +
                 ", counter=" + counter +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ClickCounter)) return false;
+        ClickCounter counter1 = (ClickCounter) o;
+        return id.equals(counter1.id) && counter.equals(counter1.counter);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, counter);
     }
 }
