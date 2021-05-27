@@ -1,6 +1,7 @@
 package ru.nedra.antufievsemen.clickercounter.factory;
 
 import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ru.nedra.antufievsemen.clickercounter.entity.ClickCounter;
 import ru.nedra.antufievsemen.repository.ClickCounterRepository;
@@ -8,12 +9,11 @@ import ru.nedra.antufievsemen.repository.ClickCounterRepository;
 @Component
 public class ClickCounterFactory {
 
-    private final ClickCounterRepository clickCounterRepository;
+    @Autowired
+    private ClickCounterRepository clickCounterRepository;
     private ClickCounter counter;
 
-    public ClickCounterFactory(ClickCounterRepository clickCounterRepository) {
-        this.clickCounterRepository = clickCounterRepository;
-    }
+    private ClickCounterFactory(){}
 
     /*
     * Сделал данный метод для работы с одним инстансом ClickCounter`а.
